@@ -18,7 +18,8 @@
         "psr/log": "^1.0"
     },
     "require-dev": {
-        "symfony/symfony": "^2.0 || ^3.0"
+        "symfony/symfony": "^2.0 || ^3.0",
+        "phpunit/phpunit": "^7.5"
     },
     "suggest": {
         "symfony/symfony": "To use as a bundle"

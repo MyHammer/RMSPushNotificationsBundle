@@ -2,11 +2,12 @@
 
 namespace RMS\PushNotificationsBundle\Tests\Message;
 
+use PHPUnit\Framework\TestCase;
 use RMS\PushNotificationsBundle\Device\Types,
     RMS\PushNotificationsBundle\Message\BlackberryMessage,
     RMS\PushNotificationsBundle\Message\MessageInterface;
 
-class BlackberryMessageTest extends \PHPUnit_Framework_TestCase
+class BlackberryMessageTest extends TestCase
 {
     public function testCreation()
     {

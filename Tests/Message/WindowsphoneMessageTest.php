@@ -2,11 +2,12 @@
 
 namespace RMS\PushNotificationsBundle\Tests\Message;
 
+use PHPUnit\Framework\TestCase;
 use RMS\PushNotificationsBundle\Device\Types,
     RMS\PushNotificationsBundle\Message\WindowsphoneMessage,
     RMS\PushNotificationsBundle\Message\MessageInterface;
 
-class WindowsphoneMessageTest extends \PHPUnit_Framework_TestCase
+class WindowsphoneMessageTest extends TestCase
 {
     public function testCreation()
     {

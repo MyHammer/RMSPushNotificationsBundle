@@ -109,7 +109,11 @@ class AndroidGCMNotification implements OSNotificationServiceInterface
         );
         $data = array_merge(
             $message->getGCMOptions(),
-            array("data" => $message->getData())
+            array(
+                'data' => array(
+                    'message' => $message->getData()
+                )
+            )
         );
 
         if ($this->useDryRun) {

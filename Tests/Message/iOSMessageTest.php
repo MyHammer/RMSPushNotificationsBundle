@@ -2,11 +2,12 @@
 
 namespace RMS\PushNotificationsBundle\Tests\Message;
 
+use PHPUnit\Framework\TestCase;
 use RMS\PushNotificationsBundle\Device\Types,
     RMS\PushNotificationsBundle\Message\iOSMessage,
     RMS\PushNotificationsBundle\Message\MessageInterface;
 
-class iOSMessageTest extends \PHPUnit_Framework_TestCase
+class iOSMessageTest extends TestCase
 {
     public function testCreation()
     {
