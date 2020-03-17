@@ -102,7 +102,7 @@ class AndroidFCMNotification implements OSNotificationServiceInterface
             $message->getFCMOptions(),
             array(
                 'notification' => $message->getData(),
-                'data' => $this->extractData($message->getData()),
+                'data' => $this->flattenData($message->getData()),
             )
         );
         
@@ -149,24 +149,20 @@ class AndroidFCMNotification implements OSNotificationServiceInterface
         return true;
     }
 
-    protected function extractData(array $data)
+    protected function flattenData(array $data)
     {
-        if (isset($data['data'])) {
-            return $data['data'];
-        }
+        $result = array();
 
-        foreach ($data as $element) {
+        foreach ($data as $key => $element) {
             if (!is_array($element)) {
+                $result[$key] = $element;
                 continue;
             }
-            $result = $this->extractData($element);
 
-            if (count($result) > 0) {
-                return $result;
-            }
+            $result = array_merge($result, flattenData($element));
         }
 
-        return array();
+        return $result;
     }
 
     /**
