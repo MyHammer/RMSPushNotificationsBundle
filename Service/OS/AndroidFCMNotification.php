@@ -159,7 +159,7 @@ class AndroidFCMNotification implements OSNotificationServiceInterface
                 continue;
             }
 
-            $result = array_merge($result, flattenData($element));
+            $result = array_merge($result, $this->flattenData($element));
         }
 
         return $result;
