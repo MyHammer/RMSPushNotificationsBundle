@@ -100,7 +100,10 @@ class AndroidFCMNotification implements OSNotificationServiceInterface
         );
         $data = array_merge(
             $message->getFCMOptions(),
-            array("notification" => $message->getData())
+            array(
+                'notification' => $message->getData(),
+                'data' => $this->flattenData($message->getData()),
+            )
         );
         
         // Perform the calls (in parallel)
@@ -144,6 +147,22 @@ class AndroidFCMNotification implements OSNotificationServiceInterface
         }
 
         return true;
+    }
+
+    protected function flattenData(array $data)
+    {
+        $result = array();
+
+        foreach ($data as $key => $element) {
+            if (!is_array($element)) {
+                $result[$key] = $element;
+                continue;
+            }
+
+            $result = array_merge($result, $this->flattenData($element));
+        }
+
+        return $result;
     }
 
     /**
